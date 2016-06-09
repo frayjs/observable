@@ -3,8 +3,8 @@ fray.observable
 
 Custom observable events
 
-[![Build Status](https://travis-ci.org/frayjs/observable.svg?branch=master)](https://travis-ci.org/frayjs/observable)
-[![Test Coverage](https://codeclimate.com/github/frayjs/observable/badges/coverage.svg)](https://codeclimate.com/github/frayjs/observable/coverage)
+[![Build Status](https://img.shields.io/travis/frayjs/observable.svg)](https://travis-ci.org/frayjs/observable)
+[![Test Coverage](https://img.shields.io/codeclimate/coverage/github/frayjs/observable.svg)](https://codeclimate.com/github/frayjs/observable/coverage)
 
 Usage
 -----
