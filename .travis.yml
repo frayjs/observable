@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "node"
+addons:
+  code_climate:
+    repo_token: 47ed978326e2e1d65ddfc4fbf119b1b39c6638f97a50240c77a87c1e35158e9c
+after_script:
+  - npm run codeclimate
+notifications:
+  email: false

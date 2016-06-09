@@ -2,23 +2,34 @@
 
 var defer = require('./helpers/defer');
 
-var subscribe = function (listeners, event, listener) {
-  if (typeof listeners[event] === 'undefined') { listeners[event] = []; }
-  listeners[event].push(listener);
+var subscribe = function (observers, event, observer) {
+  if (typeof observer !== 'function') {
+    throw new Error('missing mandatory observer function');
+  }
+
+  if (typeof observers[event] === 'undefined') {
+    observers[event] = [];
+  }
+
+  observers[event].push(observer);
 };
 
-var publish = defer(function (listeners, event, msg) {
-  if (Array.isArray(listeners[event])) {
-    listeners[event].forEach(defer(function (listener) {
-      listener(msg);
+var publish = defer(function (observers, event, message) {
+  if (Array.isArray(observers[event])) {
+    observers[event].forEach(defer(function (observer) {
+      observer(message);
     }));
   }
 });
 
 var observable = function (generator) {
-  var listeners = {};
-  generator(publish.bind(null, listeners));
-  return subscribe.bind(null, listeners);
+  if (typeof generator !== 'function') {
+    throw new Error('missing mandatory generator function');
+  }
+
+  var observers = {};
+  generator(publish.bind(null, observers));
+  return subscribe.bind(null, observers);
 };
 
 module.exports = observable;
