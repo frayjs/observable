@@ -1,6 +1,6 @@
 {
   "name": "fray.observable",
-  "description": "Event emitter",
+  "description": "Custom observable events",
   "version": "0.2.0",
   "repository": {
     "type": "git",
