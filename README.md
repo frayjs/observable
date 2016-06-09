@@ -37,7 +37,7 @@ PRs are welcome!
 ### Unit tests
 
     git clone https://github.com/frayjs/observable
-    cd events
+    cd observable
     npm install
     npm test
 
