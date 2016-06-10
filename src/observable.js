@@ -16,9 +16,9 @@ var subscribe = function (observers, event, observer) {
 
 var publish = defer(function (observers, event, message) {
   if (Array.isArray(observers[event])) {
-    observers[event].forEach(defer(function (observer) {
+    observers[event].forEach(function (observer) {
       observer(message);
-    }));
+    });
   }
 });
 
